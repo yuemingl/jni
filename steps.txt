@@ -1,0 +1,7 @@
+javac HelloJNI.java
+javah HelloJNI
+gcc -c -fpic -I/home/etie/dev/jdk/include -I/home/etie/dev/jdk/include/linux HelloJNI.c
+gcc -shared -o libhello.so HelloJNI.o
+export LD_LIBRARY_PATH=.
+java HelloJNI 
+
