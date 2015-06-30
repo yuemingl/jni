@@ -1,11 +1,11 @@
 javac HelloJNI.java
-javah HelloJNI
-gcc -c -fpic -I/home/etie/dev/jdk/include -I/home/etie/dev/jdk/include/linux HelloJNI.c
+javah -cp . HelloJNI
+gcc -c -fpic -I. -I/usr/lib/jvm/java-7-oracle/include -I/usr/lib/jvm/java-7-oracle/include/linux HelloJNI.c
 gcc -shared -o libhello.so HelloJNI.o
 export LD_LIBRARY_PATH=.
 java HelloJNI 
 
-For Mac OS:
-gcc -c -fpic -I/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/include/ -I/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/include/darwin/ HelloWorld.c
-gcc -shared -o libhello.dylib HelloWorld.o
+#For Mac OS:
+#gcc -c -fpic -I/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/include/ -I/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/include/darwin/ HelloWorld.c
+#gcc -shared -o libhello.dylib HelloWorld.o
 
